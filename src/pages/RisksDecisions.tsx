@@ -1,10 +1,12 @@
 import { SectionTitle, Card, CardHeader } from '../components/Card';
 import { SeverityBadge } from '../components/Badge';
 import { ValueOrTBD } from '../components/TBDTag';
-import { risks, decisions } from '../data/risks';
+import { decisions } from '../data/risks';
 import { initiatives } from '../data/initiatives';
+import { useRisksRemote } from '../data/remote/useRisksRemote';
 
 export function RisksDecisions() {
+  const { risks } = useRisksRemote();
   const initiativeName = (id: string) => initiatives.find((i) => i.id === id)?.name ?? id;
 
   return (

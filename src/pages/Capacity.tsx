@@ -1,8 +1,10 @@
 import { SectionTitle, Card, CardHeader } from '../components/Card';
-import { capacity, capacitySummary } from '../data/people';
+import { capacitySummary } from '../data/people';
+import { useCapacityRemote } from '../data/remote/useCapacityRemote';
 import { AlertTriangle } from 'lucide-react';
 
 export function Capacity() {
+  const { capacity } = useCapacityRemote();
   return (
     <div className="space-y-6">
       <SectionTitle subtitle="Where the R&D team's time is actually going.">Capacity</SectionTitle>

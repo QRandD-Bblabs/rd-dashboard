@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {
   LayoutDashboard,
   Layers,
@@ -72,8 +72,13 @@ export function Layout({ children }: { children: ReactNode }) {
                 </NavLink>
               ))}
             </nav>
-            <div className="px-6 py-5 text-[11px] leading-relaxed text-[#F6F7F5]/40">
-              Discover → Validate → Build → Learn → Reuse
+            <div className="px-6 py-5">
+              <div className="text-[11px] leading-relaxed text-[#F6F7F5]/40">
+                Discover → Validate → Build → Learn → Reuse
+              </div>
+              <Link to="/admin" className="mt-3 inline-block text-[11px] font-medium text-[#F6F7F5]/30 hover:text-[#F6F7F5]/60">
+                Admin
+              </Link>
             </div>
           </div>
         </aside>

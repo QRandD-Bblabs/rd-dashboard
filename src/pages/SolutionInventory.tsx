@@ -3,22 +3,24 @@ import { Search } from 'lucide-react';
 import { SectionTitle, Card } from '../components/Card';
 import { ReuseLevelBadge, Badge } from '../components/Badge';
 import { ValueOrTBD, ListOrTBD } from '../components/TBDTag';
-import { solutionInventory, solutionInventoryNote } from '../data/solutionInventory';
+import { solutionInventoryNote } from '../data/solutionInventory';
+import { useSolutions } from '../data/remote/useSolutions';
 
 export function SolutionInventory() {
   const [query, setQuery] = useState('');
+  const { solutions, loading } = useSolutions();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return solutionInventory;
-    return solutionInventory.filter(
+    if (!q) return solutions;
+    return solutions.filter(
       (s) =>
         s.name.toLowerCase().includes(q) ||
         s.problem.toLowerCase().includes(q) ||
         s.capability.toLowerCase().includes(q) ||
         s.vertical.toLowerCase().includes(q)
     );
-  }, [query]);
+  }, [query, solutions]);
 
   return (
     <div className="space-y-6">
@@ -35,6 +37,8 @@ export function SolutionInventory() {
           className="w-full rounded-xl border border-[#0B0A07]/12 bg-white py-2.5 pr-4 pl-9 text-sm outline-none focus:border-[#0B0A07]/30"
         />
       </div>
+
+      {loading && <div className="text-sm text-[#0B0A07]/45">Loading…</div>}
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {filtered.map((s) => (

@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import { SectionTitle, Card } from '../components/Card';
 import { PriorityBadge, StatusBadge, StageBadge } from '../components/Badge';
 import { TBDTag } from '../components/TBDTag';
-import { initiatives } from '../data/initiatives';
+import { useInitiativesRemote } from '../data/remote/useInitiativesRemote';
 
 export function Portfolio() {
+  const { initiatives } = useInitiativesRemote();
   return (
     <div className="space-y-6">
       <SectionTitle subtitle="Every initiative R&D owns, and where it currently stands.">Portfolio</SectionTitle>

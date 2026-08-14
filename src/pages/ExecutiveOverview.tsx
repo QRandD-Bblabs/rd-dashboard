@@ -4,19 +4,23 @@ import { SectionTitle, Card, CardHeader } from '../components/Card';
 import { KpiCard } from '../components/Kpi';
 import { PriorityBadge, StatusBadge, SeverityBadge } from '../components/Badge';
 import { TBDTag } from '../components/TBDTag';
-import { initiatives } from '../data/initiatives';
-import { risks } from '../data/risks';
 import { opportunities } from '../data/opportunities';
 import { people } from '../data/people';
 import { missionStatement, missionStatementEn } from '../data/operatingModel';
+import { useInitiativesRemote } from '../data/remote/useInitiativesRemote';
+import { useRisksRemote } from '../data/remote/useRisksRemote';
 
 export function ExecutiveOverview() {
-  const clara = initiatives.find((i) => i.id === 'RD-001')!;
-  const next = initiatives.find((i) => i.id === 'RET-001')!;
+  const { initiatives } = useInitiativesRemote();
+  const { risks } = useRisksRemote();
+  const clara = initiatives.find((i) => i.id === 'RD-001') ?? initiatives[0];
+  const next = initiatives.find((i) => i.id === 'RET-001') ?? initiatives[1];
   const activeCount = initiatives.filter((i) => i.status === 'Active').length;
   const p0Count = initiatives.filter((i) => i.priority === 'P0').length;
   const teamCount = people.filter((p) => p.role === 'R&D Team').length;
   const openRisks = risks.filter((r) => r.status === 'Open');
+
+  if (!clara || !next) return null;
 
   return (
     <div className="space-y-8">
