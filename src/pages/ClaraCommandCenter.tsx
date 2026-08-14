@@ -3,12 +3,17 @@ import { SectionTitle, Card, CardHeader } from '../components/Card';
 import { PriorityBadge, StatusBadge, SeverityBadge } from '../components/Badge';
 import { TBDTag, ListOrTBD } from '../components/TBDTag';
 import { FlowSteps } from '../components/FlowSteps';
-import { initiatives, claraFlowSteps, claraControlCenterFunctions, claraPendingFields } from '../data/initiatives';
-import { risks } from '../data/risks';
+import { claraFlowSteps, claraControlCenterFunctions, claraPendingFields } from '../data/initiatives';
+import { useInitiativesRemote } from '../data/remote/useInitiativesRemote';
+import { useRisksRemote } from '../data/remote/useRisksRemote';
 
 export function ClaraCommandCenter() {
-  const clara = initiatives.find((i) => i.id === 'RD-001')!;
+  const { initiatives } = useInitiativesRemote();
+  const { risks } = useRisksRemote();
+  const clara = initiatives.find((i) => i.id === 'RD-001');
   const claraRisks = risks.filter((r) => r.initiativeId === 'RD-001');
+
+  if (!clara) return null;
 
   return (
     <div className="space-y-6">
