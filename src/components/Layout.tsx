@@ -27,7 +27,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-[#F6F7F5]">
       <div className="flex">
         <aside
-          className={`fixed inset-y-0 left-0 z-40 w-72 shrink-0 transform bg-[#0B0A07] text-[#F6F7F5] transition-transform duration-200 lg:static lg:translate-x-0 ${
+          className={`fixed inset-y-0 left-0 z-40 w-72 shrink-0 transform bg-[#0B0A07] text-[#F6F7F5] transition-transform duration-200 lg:translate-x-0 ${
             open ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -81,7 +81,7 @@ export function Layout({ children }: { children: ReactNode }) {
           />
         )}
 
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 lg:pl-72">
           <header className="sticky top-0 z-20 flex items-center gap-3 border-b border-[#0B0A07]/8 bg-[#F6F7F5]/90 px-4 py-3 backdrop-blur sm:px-8">
             <button
               className="rounded-lg p-2 text-[#0B0A07]/70 hover:bg-[#0B0A07]/5 lg:hidden"
