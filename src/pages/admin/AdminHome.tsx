@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { LogOut, Library, ShieldAlert, Users, Layers, ExternalLink } from 'lucide-react';
+import { LogOut, Library, ShieldAlert, Users, Layers, ExternalLink, Lightbulb, Map, BookOpen, Boxes } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 const links = [
@@ -7,6 +7,10 @@ const links = [
   { to: '/admin/initiatives', label: 'Initiatives', icon: Layers },
   { to: '/admin/risks', label: 'Risks', icon: ShieldAlert },
   { to: '/admin/capacity', label: 'Capacity', icon: Users },
+  { to: '/admin/opportunities', label: 'Opportunities', icon: Lightbulb },
+  { to: '/admin/roadmap', label: 'Roadmap', icon: Map },
+  { to: '/admin/knowledge', label: 'Knowledge Base', icon: BookOpen },
+  { to: '/admin/accelerator', label: 'Accelerator', icon: Boxes },
 ];
 
 export function AdminHome() {

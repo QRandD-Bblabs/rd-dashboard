@@ -12,6 +12,10 @@ import { AdminSolutions } from './pages/admin/AdminSolutions';
 import { AdminInitiatives } from './pages/admin/AdminInitiatives';
 import { AdminRisks } from './pages/admin/AdminRisks';
 import { AdminCapacity } from './pages/admin/AdminCapacity';
+import { AdminOpportunities } from './pages/admin/AdminOpportunities';
+import { AdminRoadmap } from './pages/admin/AdminRoadmap';
+import { AdminKnowledge } from './pages/admin/AdminKnowledge';
+import { AdminAccelerator } from './pages/admin/AdminAccelerator';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
@@ -32,6 +36,10 @@ function App() {
         <Route path="initiatives" element={<AdminInitiatives />} />
         <Route path="risks" element={<AdminRisks />} />
         <Route path="capacity" element={<AdminCapacity />} />
+        <Route path="opportunities" element={<AdminOpportunities />} />
+        <Route path="roadmap" element={<AdminRoadmap />} />
+        <Route path="knowledge" element={<AdminKnowledge />} />
+        <Route path="accelerator" element={<AdminAccelerator />} />
       </Route>
 
       <Route

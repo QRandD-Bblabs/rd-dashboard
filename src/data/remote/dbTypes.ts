@@ -61,3 +61,40 @@ export interface CapacityRow {
   allocation_note: string;
   updated_at?: string;
 }
+
+export interface OpportunityRow {
+  id: string;
+  opportunity_id: string;
+  name: string;
+  family: string;
+  problem_pattern: string;
+  potential_mvp: string[];
+  recommended_entry: string;
+  pipeline_status: string;
+  updated_at?: string;
+}
+
+export interface RoadmapItemRow {
+  id: string;
+  item_id: string;
+  horizon: string;
+  label: string;
+  detail: string;
+  sort_order: number;
+}
+
+export interface KnowledgeCategoryRow {
+  id: string;
+  category_id: string;
+  name: string;
+  description: string;
+  item_count: number;
+}
+
+export interface AcceleratorItemRow {
+  id: string;
+  item_id: string;
+  group_name: string;
+  name: string;
+  description: string;
+}
