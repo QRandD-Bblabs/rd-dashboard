@@ -4,13 +4,8 @@ import { NavLink, Link } from 'react-router-dom';
 import {
   LayoutDashboard,
   Layers,
-  Bot,
   Map,
-  Lightbulb,
   Users,
-  Library,
-  BookOpen,
-  ShieldAlert,
   Compass,
   Menu,
   X,
@@ -20,13 +15,8 @@ import { teamName, teamSubtitle } from '../data/operatingModel';
 const navItems = [
   { to: '/', label: 'Executive Overview', icon: LayoutDashboard, end: true },
   { to: '/portfolio', label: 'Portfolio', icon: Layers },
-  { to: '/clara', label: 'Clara Command Center', icon: Bot },
   { to: '/roadmap', label: 'Roadmap', icon: Map },
-  { to: '/opportunities', label: 'Opportunity Pipeline', icon: Lightbulb },
   { to: '/capacity', label: 'Capacity', icon: Users },
-  { to: '/solutions', label: 'Solution Inventory', icon: Library },
-  { to: '/knowledge', label: 'Knowledge & Accelerator', icon: BookOpen },
-  { to: '/risks', label: 'Risks & Decisions', icon: ShieldAlert },
   { to: '/operating-model', label: 'Operating Model', icon: Compass },
 ];
 

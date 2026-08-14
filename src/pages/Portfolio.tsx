@@ -31,10 +31,7 @@ export function Portfolio() {
             {initiatives.map((i) => (
               <tr key={i.id} className="border-b border-[#0B0A07]/6 last:border-0 hover:bg-[#F6F7F5]">
                 <td className="px-5 py-4">
-                  <Link
-                    to={i.id === 'RD-001' ? '/clara' : '/roadmap'}
-                    className="font-semibold text-[#0B0A07] hover:underline"
-                  >
+                  <Link to={`/initiative/${i.id}`} className="font-semibold text-[#0B0A07] hover:underline">
                     {i.id} — {i.name}
                   </Link>
                 </td>

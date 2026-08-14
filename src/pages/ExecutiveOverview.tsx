@@ -4,7 +4,6 @@ import { SectionTitle, Card, CardHeader } from '../components/Card';
 import { KpiCard } from '../components/Kpi';
 import { PriorityBadge, StatusBadge, SeverityBadge } from '../components/Badge';
 import { TBDTag } from '../components/TBDTag';
-import { opportunities } from '../data/opportunities';
 import { people } from '../data/people';
 import { missionStatement, missionStatementEn } from '../data/operatingModel';
 import { useInitiativesRemote } from '../data/remote/useInitiativesRemote';
@@ -42,7 +41,6 @@ export function ExecutiveOverview() {
         <KpiCard label="Next Delivery" value="26 Aug 2026" icon={<CalendarClock size={16} />} hint="Clara — Corbeta kick-off" />
         <KpiCard label="Tech Lead" value={<TBDTag />} tone="critical" hint="Unfilled — RISK-001" />
         <KpiCard label="Next Initiative" value="Retail Inventory" hint="Shaping / Discovery" />
-        <KpiCard label="Opportunity Backlog" value={opportunities.length} hint="Identified, needs validation" />
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -51,8 +49,8 @@ export function ExecutiveOverview() {
             title="P0 Initiative — Clara"
             subtitle="What R&D is doing right now"
             action={
-              <Link to="/clara" className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
-                Command Center <ArrowRight size={14} />
+              <Link to={`/initiative/${clara.id}`} className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
+                Initiative Detail <ArrowRight size={14} />
               </Link>
             }
           />
@@ -87,8 +85,8 @@ export function ExecutiveOverview() {
             title="Current Risks"
             subtitle={`${openRisks.length} open`}
             action={
-              <Link to="/risks" className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
-                All risks <ArrowRight size={14} />
+              <Link to={`/initiative/${clara.id}`} className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
+                Details <ArrowRight size={14} />
               </Link>
             }
           />
@@ -106,14 +104,14 @@ export function ExecutiveOverview() {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader
             title="Next Initiative"
             subtitle="What comes after Clara"
             action={
-              <Link to="/portfolio" className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
-                Portfolio <ArrowRight size={14} />
+              <Link to={`/initiative/${next.id}`} className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
+                Details <ArrowRight size={14} />
               </Link>
             }
           />
@@ -123,20 +121,6 @@ export function ExecutiveOverview() {
             <StatusBadge status={next.status} />
           </div>
           <p className="mt-3 text-sm text-[#0B0A07]/60">{next.pain}</p>
-        </Card>
-
-        <Card>
-          <CardHeader
-            title="Pipeline"
-            subtitle="Customer-derived opportunities"
-            action={
-              <Link to="/opportunities" className="flex items-center gap-1 text-sm font-semibold text-[#0B0A07] hover:underline">
-                Pipeline <ArrowRight size={14} />
-              </Link>
-            }
-          />
-          <div className="text-3xl font-bold text-[#0B0A07]">{opportunities.length}</div>
-          <p className="mt-1 text-sm text-[#0B0A07]/60">Identified opportunities, all pending validation. None approved for development.</p>
         </Card>
 
         <Card>
